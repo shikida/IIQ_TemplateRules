@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Certification Automatic Closing Rule Template" type="CertificationAutomaticClosing">
+    <Description>
+        This rule is run when the certification is automatically closed.
+      </Description>
+    <Signature returnType="void">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="certification">
+                <Description>
+              The sailpoint.object.Certification being certified.
+            </Description>
+            </Argument>
+        </Inputs>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Certification;
+
+//Log mylogger = LogFactory.getLog("rule.CertificationAutomaticClosing");
+//mylogger.debug("Start CertificationAutomaticClosing");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.CertificationAutomaticClosing.name=rule.CertificationAutomaticClosing 
+//logger.CertificationAutomaticClosing.level=debug
+
+//Available Input Variables
+//certification;
+
+
+//mylogger.debug("End CertificationAutomaticClosing");
+//this rule does not return anything
+
+]]>
+  </Source>
+</Rule>
+</sailpoint>

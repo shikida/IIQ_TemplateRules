@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Scope Correlation Template" type="ScopeCorrelation">
+    <Description>
+        Given an identity and the defined scope correlation attribute and value,
+        determine the correct assigned scope for the Identity. This can
+        return a single Scope (if we can correlate to a distinct scope),
+        a List of Scopes (if we can't determine a distinct scope), or
+        null (if there is not an assigned scope for the given identity).
+      </Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="identity">
+                <Description>
+              The identity for which to correlate the assigned scope.
+            </Description>
+            </Argument>
+            <Argument name="scopeCorrelationAttribute">
+                <Description>
+              The name of the scope correlation attribute on the identity.
+            </Description>
+            </Argument>
+            <Argument name="scopeCorrelationAttributeValue">
+                <Description>
+              The value of the scope correlation attribute on the given identity.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="scopes">
+                <Description>
+              Either a Scope or a List that contains multiple scopes that could
+              correlate to the given identity.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Identity;
+import java.lang.String;
+import java.lang.String;
+
+//Log mylogger = LogFactory.getLog("rule.ScopeCorrelation");
+//mylogger.debug("Start ScopeCorrelation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.ScopeCorrelation.name=rule.ScopeCorrelation 
+//logger.ScopeCorrelation.level=debug
+
+//Available Input Variables
+//identity;
+//scopeCorrelationAttribute;
+//scopeCorrelationAttributeValue;
+
+
+//mylogger.debug("End ScopeCorrelation");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

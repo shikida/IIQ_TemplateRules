@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Target Transformation Template" type="TargetTransformer">
+    <Description>
+        This rule is used by the target aggregation process to allow customizing
+        targets returned from downstream sources.
+      </Description>
+    <Signature returnType="Target">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="collector">
+                <Description>
+              The Collector of the Targets.
+            </Description>
+            </Argument>
+            <Argument name="target">
+                <Description>
+              The Target being transformed.
+            </Description>
+            </Argument>
+            <Argument name="targetSource">
+                <Description>
+              The source of the configuration for the collector.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="target">
+                <Description>
+              The Target being transformed.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.unstructured.TargetCollector;
+import sailpoint.object.Target;
+import sailpoint.object.TargetSource;
+
+//Log mylogger = LogFactory.getLog("rule.TargetTransformer");
+//mylogger.debug("Start TargetTransformer");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.TargetTransformer.name=rule.TargetTransformer 
+//logger.TargetTransformer.level=debug
+
+//Available Input Variables
+//collector;
+//target;
+//targetSource;
+
+
+//mylogger.debug("End TargetTransformer");
+//return Target
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

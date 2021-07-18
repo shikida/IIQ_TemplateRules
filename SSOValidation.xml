@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="SSO Validation Template" type="SSOValidation">
+    <Description>
+        A rule used to perform SSO validation. Returning a non-null string
+        invalidates the session. The string is used as the error
+        message.
+      </Description>
+    <Signature returnType="String">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="httpRequest">
+                <Description>
+              A javax.servlet.http.HttpServletRequest object containing the SSO
+              data.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="resultMessage">
+                <Description>
+              The message that describes the reason why the validation failed.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import javax.servlet.http.HttpServletRequest;
+
+//Log mylogger = LogFactory.getLog("rule.SSOValidation");
+//mylogger.debug("Start SSOValidation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.SSOValidation.name=rule.SSOValidation 
+//logger.SSOValidation.level=debug
+
+//Available Input Variables
+//httpRequest;
+
+
+//mylogger.debug("End SSOValidation");
+//return String
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

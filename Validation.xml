@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Validation Template" type="Validation">
+    <Description>
+        This rule is used to validate the Field values on a provisioning plan.
+      </Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="identity">
+                <Description>
+              The Identity object being provisioned.
+            </Description>
+            </Argument>
+            <Argument name="app">
+                <Description>
+              The Application object being processed.
+            </Description>
+            </Argument>
+            <Argument name="form">
+                <Description>
+              The Form object being processed.
+            </Description>
+            </Argument>
+            <Argument name="field">
+                <Description>
+              The Field object being validated.
+            </Description>
+            </Argument>
+            <Argument name="value">
+                <Description>
+              The Object representing the field value.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="value">
+                <Description>
+              An Object (possibly a Collection) of messages resulting from the
+              validation rule.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Identity;
+import sailpoint.object.Application;
+import sailpoint.object.Form;
+import sailpoint.object.Field;
+import java.lang.Object;
+
+//Log mylogger = LogFactory.getLog("rule.Validation");
+//mylogger.debug("Start Validation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.Validation.name=rule.Validation 
+//logger.Validation.level=debug
+
+//Available Input Variables
+//identity;
+//app;
+//form;
+//field;
+//value;
+
+
+//mylogger.debug("End Validation");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

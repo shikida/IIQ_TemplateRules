@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Request Object Selector Template" type="RequestObjectSelector">
+    <Description>
+        Request Object Selector Rules are used by the Life Cycle Manager to
+        determine the Objects that can be requested by a given
+        user on a given population. For bulk request this rule is run twice. The
+        first time the result determines
+        which applications are shown to the requestor. The second time the result
+        determines whether or not the specified
+        requestee has access to the object. On the first execution the requestee is
+        always null, so the rule
+        needs to expect and handle that case in order to be usable for bulk
+        requests.
+      </Description>
+    <Signature returnType="sailpoint.object.QueryInfo">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="requestor" type="sailpoint.object.Identity">
+                <Description>
+              Identity that is making the Life Cycle Manager request.
+            </Description>
+            </Argument>
+            <Argument name="requestee" type="sailpoint.object.Identity">
+                <Description>
+              Identity on whose behalf the Life Cycle Manager request is being made. In
+              the case of bulk requests,
+              this argument will be set to null when determining the roles that are
+              visible to the requestor.
+              It will be provided once a selection has been made in order to
+              determine whether or not the given requestee
+              should have access to the selected role.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="filter">
+                <Description>
+              A Filter object that will be used to search for accessible request
+              objects.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Identity;
+import sailpoint.object.Identity;
+
+//Log mylogger = LogFactory.getLog("rule.RequestObjectSelector");
+//mylogger.debug("Start RequestObjectSelector");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.RequestObjectSelector.name=rule.RequestObjectSelector 
+//logger.RequestObjectSelector.level=debug
+
+//Available Input Variables
+//requestor;
+//requestee;
+
+
+//mylogger.debug("End RequestObjectSelector");
+//return sailpoint.object.QueryInfo
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

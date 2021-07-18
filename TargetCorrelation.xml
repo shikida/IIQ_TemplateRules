@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Target Correlation Template" type="TargetCorrelation">
+    <Description>
+        This rule is called when a Target is correlated.
+      </Description>
+    <Signature returnType="Map">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="application">
+                <Description>
+              The Application which owns the Target.
+            </Description>
+            </Argument>
+            <Argument name="nativeId">
+                <Description>
+              The native id associated with an AccessMapping.
+            </Description>
+            </Argument>
+            <Argument name="target">
+                <Description>
+              The Target being correlated.
+            </Description>
+            </Argument>
+            <Argument name="targetSource">
+                <Description>
+              The source of the configuration for the collector.
+            </Description>
+            </Argument>
+            <Argument name="isGroup">
+                <Description>
+              Indicates whether or not this is a GroupMapping.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="result">
+                <Description>
+              A Map containing either a ManagedAttribute object ('group') or the
+              name ('groupAttributeName') and value
+              ('groupAttributeValue') of a ManagedAttribute. Link may
+              also be returned since targets may also be correlated to a
+              link object.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Application;
+import java.lang.String;
+import sailpoint.object.Target;
+import sailpoint.object.TargetSource;
+
+//Log mylogger = LogFactory.getLog("rule.TargetCorrelation");
+//mylogger.debug("Start TargetCorrelation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.TargetCorrelation.name=rule.TargetCorrelation 
+//logger.TargetCorrelation.level=debug
+
+//Available Input Variables
+//application;
+//nativeId;
+//target;
+//targetSource;
+//isGroup;
+
+
+//mylogger.debug("End TargetCorrelation");
+//return Map
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Certification Entity Customization Template" type="CertificationEntityCustomization">
+    <Description>
+        A CertificationEntity customization rule is run when a certification
+        is generated to allow the CertificationEntity to be customized.
+        For example, default values can be calculated for the custom
+        fields.
+      </Description>
+    <Signature returnType="void">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="certification">
+                <Description>
+              The sailpoint.object.Certification to which the item is being added.
+            </Description>
+            </Argument>
+            <Argument name="certifiableEntity">
+                <Description>
+              The sailpoint.object.AbstractCertifiableEntity from which the
+              certifiable was retrieved.
+            </Description>
+            </Argument>
+            <Argument name="certContext">
+                <Description>
+              The sailpoint.api.CertificationContext that is being used to build
+              the
+              certification.
+            </Description>
+            </Argument>
+            <Argument name="entity">
+                <Description>
+              The sailpoint.object.CertificationEntity to be customized.
+            </Description>
+            </Argument>
+        </Inputs>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Certification;
+import sailpoint.object.Certifiable;
+import sailpoint.object.AbstractCertifiableEntity;
+import sailpoint.api.CertificationContext;
+import sailpoint.object.CertificationEntity;
+
+//Log mylogger = LogFactory.getLog("rule.CertificationEntityCustomization");
+//mylogger.debug("Start CertificationEntityCustomization");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.CertificationEntityCustomization.name=rule.CertificationEntityCustomization 
+//logger.CertificationEntityCustomization.level=debug
+
+//Available Input Variables
+//certification;
+//certifiable;
+//certifiableEntity;
+//certContext;
+//entity;
+
+
+//mylogger.debug("End CertificationEntityCustomization");
+//this rule does not return anything
+
+]]>
+  </Source>
+</Rule>
+</sailpoint>

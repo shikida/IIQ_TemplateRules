@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Link Attribute Template" type="LinkAttribute">
+    <Description>
+        This rule is used when promoting account attributes from Links during
+        aggregation.
+      </Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="environment">
+                <Description>
+              The optional arguments passed from the task executor, if the rule is
+              running within a task.
+            </Description>
+            </Argument>
+            <Argument name="link">
+                <Description>
+              The Link whose attribute is being promoted.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="value">
+                <Description>
+              An Object to be used as the attribute value.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Attributes;
+import sailpoint.object.Link;
+
+//Log mylogger = LogFactory.getLog("rule.LinkAttribute");
+//mylogger.debug("Start LinkAttribute");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.LinkAttribute.name=rule.LinkAttribute 
+//logger.LinkAttribute.level=debug
+
+//Available Input Variables
+//environment;
+//link;
+
+
+//mylogger.debug("End LinkAttribute");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

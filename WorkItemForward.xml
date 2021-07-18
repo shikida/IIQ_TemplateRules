@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Work Item Forward Template" type="WorkItemForward">
+    <Description>
+        A rule used to examine a WorkItem and determine whether or not it
+        needs to be forwarded to a new owner for further analysis or
+        action. The default forwarding rule in the system configuratin
+        will be called every time a WorkItem is opened, and whenever it
+        is forwarded in the user interface.
+      </Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="item">
+                <Description>
+              The WorkItem being opened or forwarded.
+            </Description>
+            </Argument>
+            <Argument name="owner">
+                <Description>
+              The Identity that currently owns the work item.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="newOwner">
+                <Description>
+              An Identity that should own the work item. Alternatively, this can
+              be a String that is the name or id of the Identity.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.WorkItem;
+import sailpoint.object.Identity;
+import sailpoint.object.Identity;
+
+//Log mylogger = LogFactory.getLog("rule.WorkItemForward");
+//mylogger.debug("Start WorkItemForward");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.WorkItemForward.name=rule.WorkItemForward 
+//logger.WorkItemForward.level=debug
+
+//Available Input Variables
+//item;
+//owner;
+//newOwner;
+
+
+//mylogger.debug("End WorkItemForward");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

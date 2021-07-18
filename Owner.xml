@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Owner Template" type="Owner">
+    <Description>
+        Owner Rules are used by provisioning policies to determine the owner of
+        the
+        provisioning policy or its policy fields.
+      </Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="identity">
+                <Description>
+              The Identity object being provisioned.
+            </Description>
+            </Argument>
+            <Argument name="role">
+                <Description>
+              The Role object involved in the provisioning processed.
+            </Description>
+            </Argument>
+            <Argument name="application">
+                <Description>
+              The Application object being provisioned.
+            </Description>
+            </Argument>
+            <Argument name="template">
+                <Description>
+              The Template object that defines the provisioning plan.
+            </Description>
+            </Argument>
+            <Argument name="field">
+                <Description>
+              The Field object being processed.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="identity">
+                <Description>
+              Either the Identity of the owner, or the type of template used to
+              define the provisioning policy, from which the owner can
+              be determined.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Identity;
+import sailpoint.object.Bundle;
+import sailpoint.object.Application;
+import sailpoint.object.Template;
+import sailpoint.object.Field;
+
+//Log mylogger = LogFactory.getLog("rule.Owner");
+//mylogger.debug("Start Owner");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.Owner.name=rule.Owner 
+//logger.Owner.level=debug
+
+//Available Input Variables
+//identity;
+//role;
+//application;
+//template;
+//field;
+
+
+//mylogger.debug("End Owner");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Certifier Template" type="Certifier">
+    <Description>
+        A rule used to assign certifiers to populations generated from a
+        group factory.
+      </Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="factory">
+                <Description>
+              The GroupFactory that generated the populations.
+            </Description>
+            </Argument>
+            <Argument name="group">
+                <Description>
+              One GroupDefinition from the factory.
+            </Description>
+            </Argument>
+            <Argument name="state">
+                <Description>
+              A Map containing state information.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="certifiers">
+                <Description>
+              A String, List&lt;String&gt;, Identity, or a List&lt;Identity&gt;.
+              When returning strings, the string must be the name or id
+              of an Identity. When returning a single string, the string
+              may be formatted as a CSV of Identity names or ids.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.GroupFactory;
+import sailpoint.object.GroupDefinition;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.Certifier");
+//mylogger.debug("Start Certifier");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.Certifier.name=rule.Certifier 
+//logger.Certifier.level=debug
+
+//Available Input Variables
+//factory;
+//group;
+//state;
+
+
+//mylogger.debug("End Certifier");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

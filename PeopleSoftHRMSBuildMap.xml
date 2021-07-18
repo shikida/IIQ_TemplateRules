@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="PeopleSoft Build Map Template" type="PeopleSoftHRMSBuildMap">
+    <Description>
+        This rule can be used to customize the PeopleSoft resource object that
+        the connectors build by default.
+        The rule gets a resource object map from the buildMap that holds all of
+        the attributes
+        on PeopleSoft HRMS aggregation. The buildMap rule will be
+        modified/added to here to help support customer customizations
+        and
+        transformations that require the PeopleSoft HRMS system.
+      </Description>
+    <Signature returnType="map">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="context">
+                <Description>
+              A sailpoint.api.SailPointContext object that can be used to
+              query the database to aid in provisioning.
+            </Description>
+            </Argument>
+            <Argument name="application">
+                <Description>
+              The application object being used to connect to the PeopleSoft
+              system.
+            </Description>
+            </Argument>
+            <Argument name="schema">
+                <Description>
+              The schema that represents the object we are building for
+              aggregation.
+            </Description>
+            </Argument>
+            <Argument name="connection">
+                <Description>
+              Connection to the application database.
+            </Description>
+            </Argument>
+            <Argument name="state">
+                <Description>
+              A map object that can be used to store data during the iteration
+              process.
+            </Description>
+            </Argument>
+            <Argument name="identity">
+                <Description>
+              An identity in context of aggregation.
+            </Description>
+            </Argument>
+            <Argument name="connector">
+                <Description>
+              The connector that is being used to communicate with PeoplesoftHRMS
+              connector functions/methods.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="map">
+                <Description>
+              The result of the return map dependent on the rule itself.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Application;
+import sailpoint.object.Schema;
+import java.sql.Connection;
+import java.util.Map;
+import sailpoint.object.Identity;
+import sailpoint.connector.PeopleSoftHRMSConnector;
+
+//Log mylogger = LogFactory.getLog("rule.PeopleSoftHRMSBuildMap");
+//mylogger.debug("Start PeopleSoftHRMSBuildMap");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.PeopleSoftHRMSBuildMap.name=rule.PeopleSoftHRMSBuildMap 
+//logger.PeopleSoftHRMSBuildMap.level=debug
+
+//Available Input Variables
+//application;
+//schema;
+//connection;
+//state;
+//identity;
+//connector;
+
+
+//mylogger.debug("End PeopleSoftHRMSBuildMap");
+//return map
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

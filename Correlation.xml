@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Correlation Template" type="Correlation">
+    <Description>
+        Identity Correlation Rules are used to find identities to which new accounts
+        can be attached.
+
+        A correlation rule must return a Map with one of the specified Return
+        arguments.
+      </Description>
+    <Signature returnType="Map">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="environment" type="Map">
+                <Description>
+              Arguments passed to the aggregation task.
+            </Description>
+            </Argument>
+            <Argument name="application">
+                <Description>
+              Application being aggregated.
+            </Description>
+            </Argument>
+            <Argument name="account">
+                <Description>
+              A sailpoint.object.ResourceObject returned from the
+              collector.
+            </Description>
+            </Argument>
+            <Argument name="link">
+                <Description>
+              Existing link to this account.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="identityName">
+                <Description>
+              The name of an Identity object.
+            </Description>
+            </Argument>
+            <Argument name="identity">
+                <Description>
+              A fully resolved Identity object if the rule wants
+              to do its own queries to locate the identity.
+            </Description>
+            </Argument>
+            <Argument name="identityAttributeName">
+                <Description>
+              The name of the extended attribute that can be used
+              to locate an existing identity.
+            </Description>
+            </Argument>
+            <Argument name="identityAttributeValue">
+                <Description>
+              The value of the named extended attribute that can be used
+              to locate an existing identity. This attribute is used
+              together with the identityAttributeName argument.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Attributes;
+import sailpoint.object.Application;
+import sailpoint.object.ResourceObject;
+import sailpoint.object.Link;
+
+//Log mylogger = LogFactory.getLog("rule.Correlation");
+//mylogger.debug("Start Correlation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.Correlation.name=rule.Correlation 
+//logger.Correlation.level=debug
+
+//Available Input Variables
+//environment;
+//application;
+//account;
+//link;
+
+
+//mylogger.debug("End Correlation");
+//return Map
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

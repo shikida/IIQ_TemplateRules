@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Identity Selector Template" type="IdentitySelector">
+    <Description>
+        This rule is used to select an Identity that is related to the given
+        Identity
+      </Description>
+    <Signature returnType="boolean">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="identity" required="true" type="Identity">
+                <Description>
+              The identity.
+            </Description>
+            </Argument>
+            <Argument name="roleName" type="String">
+                <Description>
+              The name of the sailpoint.object.Bundle (role) that is being
+              selected for the Identity.
+              If roles are not applicable to this Identity selection, this value
+              will be void.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="success">
+                <Description>
+              True if the selection was successful; false otherwise.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Identity;
+import java.lang.String;
+
+//Log mylogger = LogFactory.getLog("rule.IdentitySelector");
+//mylogger.debug("Start IdentitySelector");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.IdentitySelector.name=rule.IdentitySelector 
+//logger.IdentitySelector.level=debug
+
+//Available Input Variables
+//identity;
+//roleName;
+
+
+//mylogger.debug("End IdentitySelector");
+//return boolean
+return false;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

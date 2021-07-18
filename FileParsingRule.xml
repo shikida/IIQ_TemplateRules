@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="File Parsing Template" type="FileParsingRule">
+    <Description>
+        This rule is used by the connector to parse each object from
+        non-delimited file formats.
+      </Description>
+    <Signature returnType="Map">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="application">
+                <Description>
+              The application associated with the Connector calling the rule.
+            </Description>
+            </Argument>
+            <Argument name="config">
+                <Description>
+              The Attributes map from the Application.
+            </Description>
+            </Argument>
+            <Argument name="schema">
+                <Description>
+              The Schema from the application.
+            </Description>
+            </Argument>
+            <Argument name="inputStream">
+                <Description>
+              An InputStream object to the data file.
+            </Description>
+            </Argument>
+            <Argument name="reader">
+                <Description>
+              A Reader to wrap the InputStream.
+            </Description>
+            </Argument>
+            <Argument name="state">
+                <Description>
+              A map object that can be used to store data during the iteration
+              process.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="map">
+                <Description>
+              A Map of the complete record.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Application;
+import sailpoint.object.Attributes;
+import sailpoint.object.Schema;
+import java.io.InputStream;
+import java.io.Reader;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.FileParsingRule");
+//mylogger.debug("Start FileParsingRule");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.FileParsingRule.name=rule.FileParsingRule 
+//logger.FileParsingRule.level=debug
+
+//Available Input Variables
+//application;
+//config;
+//schema;
+//inputStream;
+//reader;
+//state;
+
+
+//mylogger.debug("End FileParsingRule");
+//return Map
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

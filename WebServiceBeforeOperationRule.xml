@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Before Operation Rule Template for Web Services Connector" type="WebServiceBeforeOperationRule">
+    <Description>This rule is used by the Web Services connector
+        before performing any operation
+        like testconnection, aggregation
+        etc .</Description>
+    <Signature returnType="EndPoint">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="application">
+                <Description>The application whose data file is being
+              processed.</Description>
+            </Argument>
+            <Argument name="requestEndPoint">
+                <Description>The current request information contain header,
+              body, context url, method type, response attribute map,
+              successful response code
+            </Description>
+            </Argument>
+            <Argument name="oldResponseMap">
+                <Description>earlier response object </Description>
+            </Argument>
+            <Argument name="restClient">
+                <Description>REST Client Object</Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="EndPoint">
+                <Description>Updated EndPoint Object</Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Application;
+import sailpoint.connector.webservices.EndPoint;
+import java.util.Map;
+import sailpoint.connector.webservices.WebServicesClient;
+
+//Log mylogger = LogFactory.getLog("rule.WebServiceBeforeOperationRule");
+//mylogger.debug("Start WebServiceBeforeOperationRule");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.WebServiceBeforeOperationRule.name=rule.WebServiceBeforeOperationRule 
+//logger.WebServiceBeforeOperationRule.level=debug
+
+//Available Input Variables
+//applciation;
+//requestEndPoint;
+//oldResponseMap;
+//restClient;
+
+
+//mylogger.debug("End WebServiceBeforeOperationRule");
+//return EndPoint
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Composite Remediation Template" type="CompositeRemediation">
+    <Description>
+        This rule is called when provisioning needs to be performed against
+        logical accounts. It gets the plan built up by the plan compiler
+        and the rule needs to return a list of Plans to fan out the
+        request across all tiers.
+      </Description>
+    <Signature returnType="ProvisioningPlan">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="application">
+                <Description>
+              The application associated with the connector.
+            </Description>
+            </Argument>
+            <Argument name="identity">
+                <Description>
+              The Identity object that is going to be remediated.
+            </Description>
+            </Argument>
+            <Argument name="plan">
+                <Description>
+              The ProvisioningPlan created against the logical application.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="provisioningPlan">
+                <Description>
+              A converted provisioning plan that targets the applications
+              that make up the logical application.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Identity;
+import sailpoint.object.ProvisioningPlan;
+
+//Log mylogger = LogFactory.getLog("rule.CompositeRemediation");
+//mylogger.debug("Start CompositeRemediation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.CompositeRemediation.name=rule.CompositeRemediation 
+//logger.CompositeRemediation.level=debug
+
+//Available Input Variables
+//identity;
+//plan;
+
+
+//mylogger.debug("End CompositeRemediation");
+//return ProvisioningPlan
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

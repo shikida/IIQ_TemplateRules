@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Identity Attribute Target Template" type="IdentityAttributeTarget">
+    <Description>
+        Identity attribute target rules are used to tranform identity attribute
+        values that are being pushed to targets.
+      </Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="value" type="Object">
+                <Description>
+              The value of the identity attribute. Note that this could be single
+              value or a list of values.
+            </Description>
+            </Argument>
+            <Argument name="sourceIdentityAttribute">
+                <Description>
+              The sailpoint.object.ObjectAttribute for this target.
+            </Description>
+            </Argument>
+            <Argument name="sourceIdentityAttributeName">
+                <Description>
+              The name of the identity attribute for this target.
+            </Description>
+            </Argument>
+            <Argument name="sourceAttributeRequest">
+                <Description>
+              The sailpoint.object.ProvisioningPlan.AttributeRequest that is
+              setting the attribute on the identity.
+            </Description>
+            </Argument>
+            <Argument name="target">
+                <Description>
+              The sailpoint.object.AttributeTarget that is being processed.
+            </Description>
+            </Argument>
+            <Argument name="identity">
+                <Description>
+              The sailpoint.object.Identity that is being processed.
+            </Description>
+            </Argument>
+            <Argument name="project">
+                <Description>
+              The sailpoint.object.ProvisioningProject that has the changes that
+              are being requested.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="attributeValue">
+                <Description>
+              The transformed value that will be pushed to the target.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import java.lang.Object;
+import sailpoint.object.ObjectAttribute;
+import java.lang.String;
+import sailpoint.object.ProvisioningPlan.AttributeRequest;
+import sailpoint.object.AttributeTarget;
+import sailpoint.object.Identity;
+import sailpoint.object.ProvisioningProject;
+import java.lang.Object;
+
+//Log mylogger = LogFactory.getLog("rule.IdentityAttributeTarget");
+//mylogger.debug("Start IdentityAttributeTarget");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.IdentityAttributeTarget.name=rule.IdentityAttributeTarget 
+//logger.IdentityAttributeTarget.level=debug
+
+//Available Input Variables
+//value;
+//sourceIdentityAttribute;
+//sourceIdentityAttributeName;
+//sourceAttributeRequest;
+//target;
+//identity;
+//project;
+//attributeValue;
+
+
+//mylogger.debug("End IdentityAttributeTarget");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

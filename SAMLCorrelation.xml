@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="SAML Correlation Template" type="SAMLCorrelation">
+    <Description>
+        A rule used to map SAML name Id and attributes to an Identity.
+      </Description>
+    <Signature returnType="SailPointObject">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="assertionAttributes">
+                <Description>
+              A map where the key is a string and value is a string. The map
+              will always contain
+              a key NameId with the value being the name Id sent by the Identity
+              Provider. All other
+              SAML assertion attributes will be included in the map.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="identity Or Link">
+                <Description>
+              The Identity or Link that has been authenticated via SAML SSO.
+              Returning the Link is the preferred way as it provides the
+              exact account back to the server side which can be helpful
+              when collecting authentication for electronic signatures.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.SAMLCorrelation");
+//mylogger.debug("Start SAMLCorrelation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.SAMLCorrelation.name=rule.SAMLCorrelation 
+//logger.SAMLCorrelation.level=debug
+
+//Available Input Variables
+//assertionAttributes;
+
+
+//mylogger.debug("End SAMLCorrelation");
+//return SailPointObject
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

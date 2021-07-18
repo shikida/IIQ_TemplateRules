@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Workflow Template" type="Workflow">
+    <Description>
+        A rule used by a Workflow to determine a step action or variable
+        value.
+
+        Note that an Attributes map of all variables from the current
+        WorkflowContext,
+        merged with the arguments from the Step, is also passed into the workflow
+        rule.
+      </Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="wfcontext">
+                <Description>
+              The current WorkflowContext.
+            </Description>
+            </Argument>
+            <Argument name="handler">
+                <Description>
+              The workflow handler associated with the current WorkflowContext.
+            </Description>
+            </Argument>
+            <Argument name="workflow">
+                <Description>
+              The current Workflow definition.
+            </Description>
+            </Argument>
+            <Argument name="step">
+                <Description>
+              The current Step.
+            </Description>
+            </Argument>
+            <Argument name="approval">
+                <Description>
+              The current Approval.
+            </Description>
+            </Argument>
+            <Argument name="item">
+                <Description>
+              The WorkItem being processed.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="Object">
+                <Description>
+              The result of the workflow rule; dependent on the rule itself.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.workflow.WorkflowContext;
+import sailpoint.workflow.WorkflowHandler;
+import sailpoint.object.Workflow;
+import sailpoint.object.Workflow.Step;
+import sailpoint.object.Workflow.Approval;
+import sailpoint.object.WorkItem;
+
+//Log mylogger = LogFactory.getLog("rule.Workflow");
+//mylogger.debug("Start Workflow");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.Workflow.name=rule.Workflow 
+//logger.Workflow.level=debug
+
+//Available Input Variables
+//wfcontext;
+//handler;
+//workflow;
+//step;
+//approval;
+//item;
+
+
+//mylogger.debug("End Workflow");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

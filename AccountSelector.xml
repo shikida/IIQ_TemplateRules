@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Account Selector Template" type="AccountSelector">
+    <Description>
+        AccountSelector Rules are used by the role modeler to automatically select a target
+        account for provisioning when there are multiple candidates.
+
+        The return value is a Link instance that represents the selection.
+        Value can be:
+
+        null - indicates that no automatic selection can be made
+
+        "prompt" - indicates that a separate account selector should be presented
+        for the role
+
+        existing Link - the selected Link from the list of possible target Links
+
+        a new Link instance - indicates that a new account must be created
+        with the identity specified by the
+        create policy, or manually; in this case, the Link instance returned will
+        have a null nativeIdentity attribute
+
+      </Description>
+    <Signature returnType="Link">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="source">
+                <Description>
+              The application doing the provisioning.
+            </Description>
+            </Argument>
+            <Argument name="role">
+                <Description>
+              The IT role being provisioned.
+            </Description>
+            </Argument>
+            <Argument name="identity">
+                <Description>
+              The target identity.
+            </Description>
+            </Argument>
+            <Argument name="application">
+                <Description>
+              The target application.
+            </Description>
+            </Argument>
+            <Argument name="links">
+                <Description>
+              A list of the possible target Links.
+            </Description>
+            </Argument>
+            <Argument name="isSecondary">
+                <Description>
+              True if this is not the first assignment.
+            </Description>
+            </Argument>
+            <Argument name="project">
+                <Description>
+              The provisioning project.
+            </Description>
+            </Argument>
+            <Argument name="accountRequest">
+                <Description>
+              The account request.
+            </Description>
+            </Argument>
+            <Argument name="allowCreate">
+                <Description>
+              True if account creation is allowed.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="selection">
+                <Description>
+              A Link instance that represents the selection. Value can be:
+              null - indicates that no automatic selection can be made
+              Link - the selected Link from the list of possible target Links
+              a new Link instance - indicates that a new account must be created
+              with the identity specified by the
+              create policy, or manually; in this case, the Link instance returned
+              will have a null nativeIdentity attribute
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import java.lang.String;
+import sailpoint.object.Bundle;
+import sailpoint.object.Identity;
+import sailpoint.object.Application;
+import java.util.List;
+import sailpoint.object.ProvisioningProject;
+import sailpoint.object.ProvisioningPlan.AccountRequest;
+
+//Log mylogger = LogFactory.getLog("rule.AccountSelector");
+//mylogger.debug("Start AccountSelector");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.AccountSelector.name=rule.AccountSelector 
+//logger.AccountSelector.level=debug
+
+//Available Input Variables
+//source;
+//role;
+//identity;
+//application;
+//links;
+//isSecondary;
+//project;
+//accountRequest;
+//allowCreate;
+
+
+//mylogger.debug("End AccountSelector");
+//return Link
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

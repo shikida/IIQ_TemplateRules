@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Certification Pre-delegation Template" type="CertificationPreDelegation">
+    <Description>
+        A pre-delegation rule that is run on every CertificationEntity when
+        the certification is generated in order to cause some entities
+        to be pre-delegated. As an example, a manager certification
+        could pre-delegate the certification responsibility to each
+        employee that reports to the manager. This would allow each
+        subordinate to first determine what they need access to, then
+        allow the manager to review their decision.
+      </Description>
+    <Signature returnType="Map">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="certification">
+                <Description>
+              The sailpoint.object.Certification being created.
+            </Description>
+            </Argument>
+            <Argument name="entity">
+                <Description>
+              The sailpoint.object.CertificationEntity to possibly pre-delegate.
+            </Description>
+            </Argument>
+            <Argument name="certContext">
+                <Description>
+              The sailpoint.api.CertificationContext generating this
+              certification.
+            </Description>
+            </Argument>
+            <Argument name="state">
+                <Description>
+              A Map containing state information.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="recipientName">
+                <Description>
+              The name of the Identity that should certify this entity. Either
+              this or 'recipient' should be non-null if pre-delegation
+              should be
+              performed.
+            </Description>
+            </Argument>
+            <Argument name="recipient">
+                <Description>
+              The Identity that should certify this entity. Either this or
+              'recipientName' should be non-null if pre-delegation
+              should be
+              performed.
+            </Description>
+            </Argument>
+            <Argument name="description">
+                <Description>
+              Optional description to set on the delegation WorkItem. If null, a
+              default description of 'Certify [entity name]' is used.
+            </Description>
+            </Argument>
+            <Argument name="comments">
+                <Description>
+              Optional comments to set on the delegation WorkItems.
+            </Description>
+            </Argument>
+            <Argument name="reassign">
+                <Description>
+              Optional boolean to specify to reassign rather than delegate.
+            </Description>
+            </Argument>
+            <Argument name="certificationName">
+                <Description>
+              Optional String to specify the name for the reassignment certification
+              if creating a new certification for reassignment. This is ignored
+              for
+              delegations.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Certification;
+import sailpoint.object.CertificationEntity;
+import sailpoint.api.CertificationContext;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.CertificationPreDelegation");
+//mylogger.debug("Start CertificationPreDelegation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.CertificationPreDelegation.name=rule.CertificationPreDelegation 
+//logger.CertificationPreDelegation.level=debug
+
+//Available Input Variables
+//certification;
+//entity;
+//certContext;
+//state;
+
+
+//mylogger.debug("End CertificationPreDelegation");
+//return Map
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

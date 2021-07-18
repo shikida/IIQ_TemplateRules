@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Activity Position Builder Template" type="ActivityPositionBuilder">
+    <Description>
+        This rule is used by the jdbc activity collector, taking the last record
+        processed and building a map that is stored on the application
+        so that we can construct a "where we left off" condition in the
+        activity condition builder.
+      </Description>
+    <Signature returnType="Map">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="row">
+                <Description>
+              A ResultSet of the row .
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="map">
+                <Description>
+              A Map of the row's information that can be used by an
+              ActivityConditionBuilder rule.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import java.sql.ResultSet;
+
+//Log mylogger = LogFactory.getLog("rule.ActivityPositionBuilder");
+//mylogger.debug("Start ActivityPositionBuilder");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.ActivityPositionBuilder.name=rule.ActivityPositionBuilder 
+//logger.ActivityPositionBuilder.level=debug
+
+//Available Input Variables
+//row;
+
+
+//mylogger.debug("End ActivityPositionBuilder");
+//return Map
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

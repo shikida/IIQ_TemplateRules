@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Transformation Template" type="Transformation">
+    <Description>
+        This rule is used by the delimited file connector and will transform a
+        Map into a ResourceObject.
+      </Description>
+    <Signature returnType="ResourceObject">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="application">
+                <Description>
+              The application being processed.
+            </Description>
+            </Argument>
+            <Argument name="schema">
+                <Description>
+              The schema being iterated.
+            </Description>
+            </Argument>
+            <Argument name="object">
+                <Description>
+              A Map representing the data to be transformed.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="resourceObject">
+                <Description>
+              The resulting ResourceObject.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Application;
+import sailpoint.object.Schema;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.Transformation");
+//mylogger.debug("Start Transformation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.Transformation.name=rule.Transformation 
+//logger.Transformation.level=debug
+
+//Available Input Variables
+//application;
+//schema;
+//object;
+
+
+//mylogger.debug("End Transformation");
+//return ResourceObject
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

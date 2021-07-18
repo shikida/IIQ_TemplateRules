@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Identity Refresh Template" type="Refresh">
+    <Description>
+        Identity refresh rules are called during aggregation and identity refresh
+        tasks after all of the other operations have completed. It
+        provides a final hook for modifying the identity before it is
+        persisted and we move on to the next identity.
+      </Description>
+    <Signature returnType="void">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="environment" required="true" type="java.util.Map">
+                <Description>
+              The task arguments passed to the aggregation or refresh task.
+            </Description>
+            </Argument>
+            <Argument name="identity" required="true" type="Identity">
+                <Description>
+              The identity that is being updated.
+            </Description>
+            </Argument>
+        </Inputs>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Attributes;
+import sailpoint.object.Identity;
+
+//Log mylogger = LogFactory.getLog("rule.Refresh");
+//mylogger.debug("Start Refresh");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.Refresh.name=rule.Refresh 
+//logger.Refresh.level=debug
+
+//Available Input Variables
+//environment;
+//identity;
+
+
+//mylogger.debug("End Refresh");
+//this rule does not return anything
+
+]]>
+  </Source>
+</Rule>
+</sailpoint>

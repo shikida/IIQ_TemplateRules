@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Task Event Template" type="TaskEventRule">
+    <Description>
+        A rule used to inject logic at a particular stage in the Task
+        execution process.
+      </Description>
+    <Signature returnType="Map">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="taskResult">
+                <Description>
+              The current task result object.
+            </Description>
+            </Argument>
+            <Argument name="event">
+                <Description>
+              The TaskEvent object
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="taskResult">
+                <Description>The resulting task result object, or null if no
+              update is required.</Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.TaskResult;
+import sailpoint.object.TaskEvent;
+
+//Log mylogger = LogFactory.getLog("rule.TaskEventRule");
+//mylogger.debug("Start TaskEventRule");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.TaskEventRule.name=rule.TaskEventRule 
+//logger.TaskEventRule.level=debug
+
+//Available Input Variables
+//taskResult;
+//event;
+
+
+//mylogger.debug("End TaskEventRule");
+//return Map
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

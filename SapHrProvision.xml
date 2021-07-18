@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Provisioning Rule Template for generic provisioning operations" type="SapHrProvision">
+    <Description>This rule is used by the SAP HR connector for
+        provisioning of the data .</Description>
+    <Signature returnType="ProvisioningResult">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="application">
+                <Description>The application whose data file is being
+              processed.</Description>
+            </Argument>
+            <Argument name="schema">
+                <Description>The Schema currently in use.</Description>
+            </Argument>
+            <Argument name="destination">
+                <Description>A connected/ready to use
+              com.sap.conn.jco.JCoDestination object that can be used to
+              call
+              bapi, function modules and call to SAP tables. This is the main
+              object used in making BAPI calls using the JCo interface.This
+              destination object is shared with the connector
+              implementation and
+              the connector controls the destination's lifecycle.</Description>
+            </Argument>
+            <Argument name="plan">
+                <Description>The ProvisioningPlan created against the SAP
+              application.</Description>
+            </Argument>
+            <Argument name="request">
+                <Description>The ProvisioningRequest created against the SAP
+              application.</Description>
+            </Argument>
+            <Argument name="connector">
+                <Description>The SAP connector that is being used to
+              communicate
+              with SAP.This class is here for convenience as there are many
+              utility methods that make calling Function Modules and doing table
+              lookup easier.</Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="result">
+                <Description>A Provisioning Result object is desirable to
+              return
+              the status.IT can be a new object or part of Provisioning Plan</Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Application;
+import sailpoint.object.Schema;
+import com.sap.conn.jco.JCoDestination;
+import sailpoint.object.ProvisioningPlan;
+import sailpoint.object.ProvisioningRequest;
+import sailpoint.connector.SAPHRConnector;
+
+//Log mylogger = LogFactory.getLog("rule.SapHrProvision");
+//mylogger.debug("Start SapHrProvision");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.SapHrProvision.name=rule.SapHrProvision 
+//logger.SapHrProvision.level=debug
+
+//Available Input Variables
+//application;
+//schema;
+//destination;
+//plan;
+//request;
+//connector;
+
+
+//mylogger.debug("End SapHrProvision");
+//return ProvisioningResult
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

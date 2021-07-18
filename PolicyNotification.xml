@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Policy Notification Template" type="PolicyNotification">
+    <Description>
+        Policy notification rules return a Map, which must contain a key, named
+        identityName, that holds the name of the identity that should
+        receive the policy violation notification.
+      </Description>
+    <Signature returnType="Map">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="violation">
+                <Description>
+              A sailpoint.object.PolicyViolation object.
+            </Description>
+            </Argument>
+            <Argument name="policy">
+                <Description>
+              A sailpoint.object.Policy object.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="identityName">
+                <Description>
+              The name of the identity that should be notified.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.PolicyViolation;
+import sailpoint.object.Policy;
+
+//Log mylogger = LogFactory.getLog("rule.PolicyNotification");
+//mylogger.debug("Start PolicyNotification");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.PolicyNotification.name=rule.PolicyNotification 
+//logger.PolicyNotification.level=debug
+
+//Available Input Variables
+//violation;
+//policy;
+
+
+//mylogger.debug("End PolicyNotification");
+//return Map
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

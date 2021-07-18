@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Task Completion Email Rule" type="TaskCompletion">
+    <Description>
+        Example rule to send email
+      </Description>
+    <Signature>
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="context">
+                <Description>
+              A sailpoint.api.SailPointContext object
+            </Description>
+            </Argument>
+            <Argument name="log">
+                <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+            </Argument>
+            <Argument name="result">
+                <Description>
+              result of task.
+            </Description>
+            </Argument>
+        </Inputs>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.api.SailPointContext;
+import sailpoint.object.TaskResult;
+
+//Log mylogger = LogFactory.getLog("rule.TaskCompletion");
+//mylogger.debug("Start TaskCompletion");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.TaskCompletion.name=rule.TaskCompletion 
+//logger.TaskCompletion.level=debug
+
+//Available Input Variables
+//context;
+//result;
+
+
+//mylogger.debug("End TaskCompletion");
+//this rule does not return anything
+
+]]>
+  </Source>
+</Rule>
+</sailpoint>

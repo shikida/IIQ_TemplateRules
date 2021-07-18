@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="AllowedValues" type="AllowedValues">
+          
+    
+    <Description>Allowed Values Rules are used by provisioning policies to determine the possible values of the policy fields.
+
+Note that an Attributes map of arguments from the current WorkflowContext is passed into the Allowed Values Rule. However, the contents of this map are dependent on the use case of the rule.  In the default case, the allowed value list is considered static.  The rule is evaluated when the form is constructed, and the form will retain that value for the life of the work item presenting the form.  In this case, all of the workflow variables are passed to the rule in the Attributes map.  In the "dynamic" case, the rule will be evaluated whenever the user interacts with the rule component, thereby allowing it to be sensitive to other fields that have been set in the form.  In the "dynamic" case, only the variables that were sent into the work item are passed to the rule in the Attributes map.</Description>
+          
+    
+    <ReferencedRules>
+                    
+        
+        <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+                  
+    
+    </ReferencedRules>
+          
+    
+    <Signature returnType="Object">
+                    
+        
+        <Inputs>
+                              
+            
+            <Argument name="log">
+                                        
+                
+                <Description>
+          The log object associated with the SailPointContext.
+        </Description>
+                                      
+            
+            </Argument>
+                              
+            
+            <Argument name="context">
+                                        
+                
+                <Description>
+          A sailpoint.api.SailPointContext object that can be used to query the database if necessary.
+        </Description>
+                                      
+            
+            </Argument>
+                              
+            
+            <Argument name="identity">
+                                        
+                
+                <Description>
+          The Identity object being provisioned.
+        </Description>
+                                      
+            
+            </Argument>
+                              
+            
+            <Argument name="form">
+                                        
+                
+                <Description>
+          The Form object for the provisioning plan.
+        </Description>
+                                      
+            
+            </Argument>
+                              
+            
+            <Argument name="field">
+                                        
+                
+                <Description>
+          The Field object being analyzed.
+        </Description>
+                                      
+            
+            </Argument>
+                            
+        
+        </Inputs>
+                    
+        
+        <Returns>
+                              
+            
+            <Argument name="value">
+                                        
+                
+                <Description>
+          An Object (possibly a Collection) of the allowed values for the given
+          field.
+        </Description>
+                                      
+            
+            </Argument>
+                            
+        
+        </Returns>
+                  
+    
+    </Signature>
+          
+    
+    <Source><![CDATA[
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Identity;
+import sailpoint.object.Form;
+import sailpoint.object.Field;
+import java.lang.String;
+
+//Log mylogger = LogFactory.getLog("rule.AllowedValues");
+//mylogger.debug("Start AllowedValues");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.AllowedValues.name=rule.AllowedValues 
+//logger.AllowedValues.level=debug
+
+//Available Input Variables
+//identity;
+//form;
+//field;
+//attributeName;
+
+
+//mylogger.debug("End AllowedValues");
+//return Object
+return null;
+
+  ]]></Source>
+        
+
+</Rule>

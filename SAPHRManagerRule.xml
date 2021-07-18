@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="SAP HR Custom Manager Model Rule" type="SAPHRManagerRule">
+    <Description>Rule to aggregate the supervisor of the employee
+        using custom code. Use this if there is a need to customize
+        determining the supervisor of employees in SAP HR i.e. if the
+        out-of-box supported OOSP and SS models are not in use in
+        SAP-HR. The arguments "employeeID" and "position" can be used to
+        determine the supervisor of the employee.</Description>
+    <Signature returnType="String">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="destination">
+                <Description>A connected and ready to use
+              com.sap.conn.jco.JCoDestination object that can be used to
+              invoke SAP BAPIs using JCo Interface. Use it to call SAP
+              BAPIs and Function Modules. This destination object is
+              shared with the connector implementation and the connector
+              controls the destination's lifecycle.</Description>
+            </Argument>
+            <Argument name="schema">
+                <Description>The schema that represents the object.</Description>
+            </Argument>
+            <Argument name="connector">
+                <Description>The SAP connector object being used to
+              communicate with SAP HR target system. The SAPHR Connector
+              Class has many public utility methods which help in
+              invoking SAP Function Modules and lookup SAP tables.</Description>
+            </Argument>
+            <Argument name="application">
+                <Description>The SAP application object being used to
+              connect to the SAP system.</Description>
+            </Argument>
+            <Argument name="state">
+                <Description>A map object that can be used to store data
+              during the iteration process.</Description>
+            </Argument>
+            <Argument name="employeeID">
+                <Description>Employee ID of the employee.</Description>
+            </Argument>
+            <Argument name="objectType">
+                <Description>Object type of the schema(i.e. account).</Description>
+            </Argument>
+            <Argument name="position">
+                <Description>Position ID of the employee.</Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="supervisor">
+                <Description>Supervisor ID of the employee.</Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import com.sap.conn.jco.JCoDestination;
+import sailpoint.object.Schema;
+import sailpoint.connector.SAPHRConnector;
+import sailpoint.object.Application;
+import java.util.Map;
+import java.lang.String;
+import java.lang.String;
+import java.lang.String;
+
+//Log mylogger = LogFactory.getLog("rule.SAPHRManagerRule");
+//mylogger.debug("Start SAPHRManagerRule");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.SAPHRManagerRule.name=rule.SAPHRManagerRule 
+//logger.SAPHRManagerRule.level=debug
+
+//Available Input Variables
+//destination;
+//schema;
+//connector;
+//application;
+//state;
+//employeeID;
+//objectType;
+//position;
+
+
+//mylogger.debug("End SAPHRManagerRule");
+//return String
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

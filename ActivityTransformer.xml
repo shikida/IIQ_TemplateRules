@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Activity Transformation Template" type="ActivityTransformer">
+    <Description>
+        ActivityTransformation Rules are used by the LogFileCollector to transform fields parsed
+        from a text file into our ApplicationActivity model.
+      </Description>
+    <Signature returnType="String">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="activity">
+                <Description>
+              The field named action, which is the raw parsed.
+              action field.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="mappedAction">
+                <Description>
+              A normalized ApplicationActivity.Action object.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import java.lang.String;
+
+//Log mylogger = LogFactory.getLog("rule.ActivityTransformer");
+//mylogger.debug("Start ActivityTransformer");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.ActivityTransformer.name=rule.ActivityTransformer 
+//logger.ActivityTransformer.level=debug
+
+//Available Input Variables
+//action;
+
+
+//mylogger.debug("End ActivityTransformer");
+//return String
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

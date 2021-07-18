@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Fallback Work Item Forward Template" type="FallbackWorkItemForward">
+    <Description>A rule used to pick a fallback owner for a work item
+        in case current owner will cause self-certification.</Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="item" type="WorkItem">
+                <Description>The WorkItem being opened. Note that the not
+              all of the WorkItem arguments may be set.</Description>
+            </Argument>
+            <Argument name="owner" type="Identity">
+                <Description>The Identity that currently owns the work item.</Description>
+            </Argument>
+            <Argument name="creator" type="String">
+                <Description>The name of identity that created the
+              certification belonging to the work item.</Description>
+            </Argument>
+            <Argument name="certifiers" type="List&lt;String&gt;">
+                <Description>A list of certifier names for the certification
+              belonging to the work item.</Description>
+            </Argument>
+            <Argument name="name" type="String">
+                <Description>The name of the certification belonging to the
+              work item. It may be null if certification is not created
+              yet.</Description>
+            </Argument>
+            <Argument name="type" type="Certification.Type">
+                <Description>The type of the certification belonging to the
+              work item.</Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="newOwner">
+                <Description>An Identity that should own the work item.
+              Alternatively, this can be a String that is the name or id
+              of the Identity.</Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.WorkItem;
+import sailpoint.object.Identity;
+import java.lang.String;
+import java.util.List;
+import java.lang.String;
+import sailpoint.object.Certification.Type;
+
+//Log mylogger = LogFactory.getLog("rule.FallbackWorkItemForward");
+//mylogger.debug("Start FallbackWorkItemForward");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.FallbackWorkItemForward.name=rule.FallbackWorkItemForward 
+//logger.FallbackWorkItemForward.level=debug
+
+//Available Input Variables
+//item;
+//owner;
+//creator;
+//certifiers;
+//name;
+//type;
+
+
+//mylogger.debug("End FallbackWorkItemForward");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

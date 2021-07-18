@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC 'sailpoint.dtd' 'sailpoint.dtd'>
+<Rule language='beanshell' name='Global Rule Library'>
+<Source>
+<![CDATA[
+String getConstant(){
+  return "XYZ";
+} 
+]]>
+</Source>
+</Rule>

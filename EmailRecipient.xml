@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="Email Recipient Template" type="EmailRecipient">
+  <Description>This rule is used to select an identity or a list of identities who will receive email.</Description>
+  <Signature returnType="String or List of Strings">
+    <Inputs>
+      <Argument name="log">
+        <Description>
+          The log object associated with the SailPointContext.
+        </Description>
+      </Argument>
+      <Argument name="context">
+        <Description>
+          A sailpoint.api.SailPointContext object that can be used to query the database if necessary.
+        </Description>
+      </Argument>
+      <Argument name="item">
+        <Description>
+          The sailpoint.object.Notifiable Interface for objects that can be reminded, escalated, and expired. 
+        </Description>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="identity name or names">
+        <Description>
+        You can return an identity name or a list of identity names.
+        </Description>
+      </Argument>
+    </Returns>
+  </Signature>
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Notifiable;
+
+//Log mylogger = LogFactory.getLog("rule.EmailRecipient");
+//mylogger.debug("Start EmailRecipient");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.EmailRecipient.name=rule.EmailRecipient 
+//logger.EmailRecipient.level=debug
+
+//Available Input Variables
+//item;
+
+
+//mylogger.debug("End EmailRecipient");
+//return String or List of Strings
+return null;
+]]>
+  </Source>
+</Rule>

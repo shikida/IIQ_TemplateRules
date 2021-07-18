@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="PreIterate Template" type="PreIterate">
+    <Description>
+        This rule is called before the connector processes the data in a file.
+      </Description>
+    <Signature returnType="void">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="application">
+                <Description>
+              Application being iterated.
+            </Description>
+            </Argument>
+            <Argument name="schema">
+                <Description>
+              Schema representing the data being iterated.
+            </Description>
+            </Argument>
+            <Argument name="stats">
+                <Description>
+              A map passed by the connector of the stats for the file about to
+              be iterated.
+              Contains keys:
+              fileName : (String) filename of the file about to be processed
+              absolutePath : (String) absolute filename
+              length : (Long) length in bytes
+              lastModified : (Long) last time the file was updated Java GMT
+            </Description>
+            </Argument>
+        </Inputs>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Application;
+import sailpoint.object.Schema;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.PreIterate");
+//mylogger.debug("Start PreIterate");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.PreIterate.name=rule.PreIterate 
+//logger.PreIterate.level=debug
+
+//Available Input Variables
+//application;
+//schema;
+//stats;
+
+
+//mylogger.debug("End PreIterate");
+//this rule does not return anything
+
+]]>
+  </Source>
+</Rule>
+</sailpoint>

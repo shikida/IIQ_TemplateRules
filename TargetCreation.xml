@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Target Creation Template" type="TargetCreation">
+    <Description>
+        This rule is called when a Target is created.
+      </Description>
+    <Signature returnType="Target">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="application">
+                <Description>
+              The Application which owns the Target.
+            </Description>
+            </Argument>
+            <Argument name="target">
+                <Description>
+              The Target being created.
+            </Description>
+            </Argument>
+            <Argument name="targetSource">
+                <Description>
+              The source of the configuration for the collector.
+            </Description>
+            </Argument>
+            <Argument name="aggregationSource">
+                <Description>
+              The source of the configuration aggregating the Targets.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="target">
+                <Description>
+              The Target being created.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Application;
+import sailpoint.object.Target;
+import sailpoint.object.TargetSource;
+import sailpoint.api.TargetAggregator.AggregationSource;
+
+//Log mylogger = LogFactory.getLog("rule.TargetCreation");
+//mylogger.debug("Start TargetCreation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.TargetCreation.name=rule.TargetCreation 
+//logger.TargetCreation.level=debug
+
+//Available Input Variables
+//application;
+//target;
+//targetSource;
+//aggregationSource;
+
+
+//mylogger.debug("End TargetCreation");
+//return Target
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

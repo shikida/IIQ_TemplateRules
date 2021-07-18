@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Activity Condition Builder Template" type="ActivityConditionBuilder">
+    <Description>
+        This rule is used by the jdbc activity collector and allows a rule to
+        build the "where" clause that will be used when searching for
+        new activities. This rule uses the map built by the
+        ActivityPositionBuilder to construct the "where" clause.
+      </Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="config">
+                <Description>
+              A Map containing the configuration info build by an
+              ActivityPositionBuilderRule.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="condition">
+                <Description>
+              The condition String, or the object whose toString() results will be
+              used.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.ActivityConditionBuilder");
+//mylogger.debug("Start ActivityConditionBuilder");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.ActivityConditionBuilder.name=rule.ActivityConditionBuilder 
+//logger.ActivityConditionBuilder.level=debug
+
+//Available Input Variables
+//config;
+
+
+//mylogger.debug("End ActivityConditionBuilder");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

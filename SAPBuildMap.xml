@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="SAP BuildMap Template" type="SAPBuildMap">
+    <Description>
+        This rule can be used to customize the SAP object that the connectors
+        build by default.
+
+        The rule gets a Map named 'object' that holds all of the attributes
+        built up using the default SAP implementation. The object can be
+        modified/added to here to help support customer customizations
+        and transformations that require the SAP system.
+
+        This rule is different from a Customization rule in that it deals with a
+        Map instead of a ResourceObject. The rule also receives a
+        'destination' object so it can make SAP calls to build up extra
+        data. It's very much like a BuildMap rule from the
+        DelimitedFileConnector, except that it receives a prebuilt Map
+        object.
+      </Description>
+    <Signature returnType="void">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="destination">
+                <Description>
+              A connected/ready to use com.sap.conn.jco.JCoDestination object
+              that can
+              be used to call bapi, function modules and call to SAP tables. This
+              is the main object used in making BAPI calls using the JCo
+              interface.
+              This destination object is shared with the connector implementation
+              and the
+              connector controls the destination's lifecycle.
+            </Description>
+            </Argument>
+            <Argument name="schema">
+                <Description>
+              The schema that represents the object we are building.
+            </Description>
+            </Argument>
+            <Argument name="connector">
+                <Description>
+              The SAP connector that is being used to communicate with SAP.
+              This class is here for convenience as there are many utility methods
+              that make calling Function Modules and doing table lookup
+              easier
+            </Description>
+            </Argument>
+            <Argument name="application">
+                <Description>
+              The SAP application object being used to connect to the SAP system.
+            </Description>
+            </Argument>
+            <Argument name="state">
+                <Description>
+              A map object that can be used to store data during the iteration
+              process.
+            </Description>
+            </Argument>
+            <Argument name="object">
+                <Description>
+              A map object that holds the attributes that have been built up by
+              the
+              default connector implementation. Any attributes built by this rule
+              should be added to this object. This object is handed by
+              reference,
+              so it can be used directly.
+            </Description>
+            </Argument>
+        </Inputs>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import com.sap.conn.jco.JCoDestination;
+import sailpoint.object.Schema;
+import sailpoint.connector.SAPInternalConnector;
+import sailpoint.object.Application;
+import java.util.Map;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.SAPBuildMap");
+//mylogger.debug("Start SAPBuildMap");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.SAPBuildMap.name=rule.SAPBuildMap 
+//logger.SAPBuildMap.level=debug
+
+//Available Input Variables
+//destination;
+//schema;
+//connector;
+//application;
+//state;
+//object;
+
+
+//mylogger.debug("End SAPBuildMap");
+//this rule does not return anything
+
+]]>
+  </Source>
+</Rule>
+</sailpoint>

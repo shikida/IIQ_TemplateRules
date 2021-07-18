@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Certification Entity Completion Template" type="CertificationEntityCompletion">
+    <Description>
+        A CertificationEntity completion rule is run when a
+        CertificationEntity is refreshed and has been determined to be
+        otherwise complete (ie - all items on the entity are complete).
+        This rule determines whether the entity is still missing any
+        information. For example, the entity may require a
+        'classification' value to be present in a custom field to be
+        complete. If errors are found, the error messages (either
+        plain-text messages or keys that map to messages in the custom
+        message catalog) are added to a List and returned to the caller.
+      </Description>
+    <Signature returnType="List">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="certification">
+                <Description>
+              The sailpoint.object.Certification being refreshed.
+            </Description>
+            </Argument>
+            <Argument name="entity">
+                <Description>
+              The sailpoint.object.CertificationEntity being refreshed.
+            </Description>
+            </Argument>
+            <Argument name="state">
+                <Description>
+              A Map containing state information.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="messages">
+                <Description>
+              A List of Message objects if errors were found; null otherwise.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Certification;
+import sailpoint.object.CertificationEntity;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.CertificationEntityCompletion");
+//mylogger.debug("Start CertificationEntityCompletion");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.CertificationEntityCompletion.name=rule.CertificationEntityCompletion 
+//logger.CertificationEntityCompletion.level=debug
+
+//Available Input Variables
+//certification;
+//entity;
+//state;
+
+
+//mylogger.debug("End CertificationEntityCompletion");
+//return List
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

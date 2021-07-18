@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Group Owner Template" type="GroupOwner">
+    <Description>
+        A rule used to assign owners to groups generated from a group
+        factory.
+      </Description>
+    <Signature returnType="Object">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="factory">
+                <Description>
+              The GroupFactory that generated the populations.
+            </Description>
+            </Argument>
+            <Argument name="group">
+                <Description>
+              One GroupDefinition from the factory.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="owner">
+                <Description>
+              The group owner. The name or id of an Identity or the Identity
+              object itself.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.GroupFactory;
+import sailpoint.object.GroupDefinition;
+
+//Log mylogger = LogFactory.getLog("rule.GroupOwner");
+//mylogger.debug("Start GroupOwner");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.GroupOwner.name=rule.GroupOwner 
+//logger.GroupOwner.level=debug
+
+//Available Input Variables
+//factory;
+//group;
+
+
+//mylogger.debug("End GroupOwner");
+//return Object
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

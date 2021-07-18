@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Provisioning Rule Template" type="JDBCProvision">
+    <Description>
+        This rule is used by the JDBC connector to do provisioning of the data .
+      </Description>
+    <Signature returnType="ProvisioningResult">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="application">
+                <Description>
+              The application whose data file is being processed.
+            </Description>
+            </Argument>
+            <Argument name="schema">
+                <Description>
+              The Schema currently in use.
+            </Description>
+            </Argument>
+            <Argument name="connection">
+                <Description>
+              A connection object to connect to database.
+            </Description>
+            </Argument>
+            <Argument name="plan">
+                <Description>
+              The ProvisioningPlan created against the JDBC application.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="result">
+                <Description>
+              A Provisioning Result object is desirable to return the status.IT
+              can be a new object or part of Provisioning Plan
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Application;
+import sailpoint.object.Schema;
+import java.sql.Connection;
+import sailpoint.object.ProvisioningPlan;
+
+//Log mylogger = LogFactory.getLog("rule.JDBCProvision");
+//mylogger.debug("Start JDBCProvision");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.JDBCProvision.name=rule.JDBCProvision 
+//logger.JDBCProvision.level=debug
+
+//Available Input Variables
+//application;
+//schema;
+//connection;
+//plan;
+
+
+//mylogger.debug("End JDBCProvision");
+//return ProvisioningResult
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

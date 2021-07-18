@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Certification Exclusion Template" type="CertificationExclusion">
+    <Description>
+        This rule is an example Certification Exclusion rule that removes all of
+        the certifiable items from a certification if the identity being
+        certified is marked as inactive.
+      </Description>
+    <Signature returnType="String">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="entity" type="AbstractCertifiableEntity">
+                <Description>
+              The AbstractCertifiableEntity that is part of the certification.
+              Currently, this is either an Identity, ManagedAttribute,
+              or Bundle.
+            </Description>
+            </Argument>
+            <Argument name="certification" type="Certification">
+                <Description>
+              The certification that this identity is part of.
+            </Description>
+            </Argument>
+            <Argument name="certContext" type="CertificationContext">
+                <Description>
+              The CertificationContext that is being used to generate the
+              certification.
+            </Description>
+            </Argument>
+            <Argument name="items" type="List">
+                <Description>
+              List of Certifiable items that are currently part of the
+              certification for this identity. Any items that should be
+              excluded
+              from the certification should be deleted from this list and added
+              to the itemsToExclude list.
+            </Description>
+            </Argument>
+            <Argument name="itemsToExclude" type="List">
+                <Description>
+              A List of Certifiable items that should not be included in the
+              certification. This list will be empty when the rule is
+              executed
+              and any items that should not be part of the certification should
+              be moved from the items list to the itemsToExclude list.
+            </Description>
+            </Argument>
+            <Argument name="state">
+                <Description>
+              A Map containing state information.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="explanation" type="String">
+                <Description>
+              An optional explanation describing why the items were excluded.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.AbstractCertifiableEntity;
+import sailpoint.object.Certification;
+import sailpoint.api.CertificationContext;
+import java.util.List;
+import java.util.List;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.CertificationExclusion");
+//mylogger.debug("Start CertificationExclusion");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.CertificationExclusion.name=rule.CertificationExclusion 
+//logger.CertificationExclusion.level=debug
+
+//Available Input Variables
+//entity;
+//certification;
+//certContext;
+//items;
+//itemsToExclude;
+//state;
+
+
+//mylogger.debug("End CertificationExclusion");
+//return String
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

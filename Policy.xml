@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Policy Template" type="Policy">
+    <Description>
+        This rule is used to determine if a Policy has been violated.
+      </Description>
+    <Signature returnType="PolicyViolation">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="identity">
+                <Description>
+              The Identity being inspected.
+            </Description>
+            </Argument>
+            <Argument name="policy">
+                <Description>
+              The Policy being evaluated.
+            </Description>
+            </Argument>
+            <Argument name="constraint">
+                <Description>
+              The Constraint being evaluated.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="violation">
+                <Description>
+              The PolicyViolation object.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Identity;
+import sailpoint.object.Policy;
+import sailpoint.object.BaseConstraint;
+
+//Log mylogger = LogFactory.getLog("rule.Policy");
+//mylogger.debug("Start Policy");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.Policy.name=rule.Policy 
+//logger.Policy.level=debug
+
+//Available Input Variables
+//identity;
+//policy;
+//constraint;
+
+
+//mylogger.debug("End Policy");
+//return PolicyViolation
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

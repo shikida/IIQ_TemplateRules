@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Policy Owner Template" type="PolicyOwner">
+    <Description>
+        This rule is used to determine the owner of a Policy violation.
+      </Description>
+    <Signature returnType="Identity">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="identity">
+                <Description>
+              The identity with the policy violation.
+            </Description>
+            </Argument>
+            <Argument name="policy">
+                <Description>
+              The policy being evaluated.
+            </Description>
+            </Argument>
+            <Argument name="constraint">
+                <Description>
+              The constraint associated with the violation. Provided if available,
+              set to null if there is no constraint.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="identity">
+                <Description>
+              The return value for the policy violation owner may be:
+              ou
+              String - identity name;
+              Identity - identity object;
+              List&lt;String&gt; - list of identity names;
+              List&lt;identity&gt; - list of identity objects;
+              Map containing key "identity" whose value is an Identity object;
+              Map containing key "identityName" whose value is a String
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Identity;
+import sailpoint.object.Policy;
+import sailpoint.object.BaseConstraint;
+
+//Log mylogger = LogFactory.getLog("rule.PolicyOwner");
+//mylogger.debug("Start PolicyOwner");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.PolicyOwner.name=rule.PolicyOwner 
+//logger.PolicyOwner.level=debug
+
+//Available Input Variables
+//identity;
+//policy;
+//constraint;
+
+
+//mylogger.debug("End PolicyOwner");
+//return Identity
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Alert Correlation Template" type="AlertCorrelation">
+    <Description>
+        This rule is called when correlating an Alert to a SailPointObject.
+      </Description>
+    <Signature returnType="Alert">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="source">
+                <Description>
+              The Application the alert was aggregated from.
+            </Description>
+            </Argument>
+            <Argument name="alert">
+                <Description>
+              The Alert object.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="object">
+                <Description>
+              An instance of a SailPointObject to correlate the Alert to.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Source;
+import sailpoint.object.Alert;
+
+//Log mylogger = LogFactory.getLog("rule.AlertCorrelation");
+//mylogger.debug("Start AlertCorrelation");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.AlertCorrelation.name=rule.AlertCorrelation 
+//logger.AlertCorrelation.level=debug
+
+//Available Input Variables
+//source;
+//alert;
+
+
+//mylogger.debug("End AlertCorrelation");
+//return Alert
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>

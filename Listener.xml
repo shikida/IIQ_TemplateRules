@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Listener Template" type="Listener">
+    <Description>
+        This rule can be used when the ObjectAttribute being listened to has
+        changed.
+      </Description>
+    <Signature returnType="void">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="environment">
+                <Description>
+              Optional arguments passed from the task executor, if the rule is running
+              within a task.
+            </Description>
+            </Argument>
+            <Argument name="identity">
+                <Description>
+              The identity which owns the attribute.
+            </Description>
+            </Argument>
+            <Argument name="attributeDefinition">
+                <Description>
+              The definition of the ObjectAttribute.
+            </Description>
+            </Argument>
+            <Argument name="attributeName">
+                <Description>
+              The name of the ObjectAttribute.
+            </Description>
+            </Argument>
+            <Argument name="oldValue">
+                <Description>
+              The original value of the ObjectAttribute.
+            </Description>
+            </Argument>
+            <Argument name="newValue">
+                <Description>
+              The new value of the ObjectAttribute.
+            </Description>
+            </Argument>
+        </Inputs>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.Attributes;
+import sailpoint.object.Identity;
+import sailpoint.object.AttributeDefinition;
+import java.lang.String;
+import java.lang.Object;
+import java.lang.Object;
+
+//Log mylogger = LogFactory.getLog("rule.Listener");
+//mylogger.debug("Start Listener");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.Listener.name=rule.Listener 
+//logger.Listener.level=debug
+
+//Available Input Variables
+//environment;
+//identity;
+//attributeDefinition;
+//attributeName;
+//oldValue;
+//newValue;
+
+
+//mylogger.debug("End Listener");
+//this rule does not return anything
+
+]]>
+  </Source>
+</Rule>
+</sailpoint>

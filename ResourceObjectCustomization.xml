@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Rule language="beanshell" name="Resource Object Customization Template" type="ResourceObjectCustomization">
+    <Description>
+        This rule is configured on the application and is called after the
+        connector has build a ResourceObject from the native application
+        data.
+
+        Initially designed for non-rule based connectors to add SPPrivileged flag to
+        an object, but could be used to do any transformations.
+      </Description>
+    <Signature returnType="ResourceObject">
+        <Inputs>
+          <Argument name="context">
+            <Description>
+              A sailpoint.api.SailPointContext object that can be used to query
+              the database if necessary.
+            </Description>
+          </Argument>
+          <Argument name="log">
+            <Description>
+              The log object associated with the SailPointContext.
+            </Description>
+          </Argument>
+
+            <Argument name="object">
+                <Description>
+              The ResourceObject built by the connector.
+            </Description>
+            </Argument>
+            <Argument name="application">
+                <Description>
+              Application that references the connector.
+            </Description>
+            </Argument>
+            <Argument name="connector">
+                <Description>
+              The connector object.
+            </Description>
+            </Argument>
+            <Argument name="state">
+                <Description>
+              A Map containing state information.
+            </Description>
+            </Argument>
+        </Inputs>
+        <Returns>
+            <Argument name="resourceObject">
+                <Description>
+              The updated resource object.
+            </Description>
+            </Argument>
+        </Returns>
+    </Signature>
+
+<ReferencedRules>
+  <Reference class="sailpoint.object.Rule" name="Global Rule Library"/>
+</ReferencedRules>
+  <Source>
+<![CDATA[
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import sailpoint.api.SailPointContext;
+import org.apache.commons.logging.Log;
+import sailpoint.object.TaskResult;
+import sailpoint.object.ResourceObject;
+import sailpoint.object.Application;
+import sailpoint.connector.Connector;
+import java.util.Map;
+
+//Log mylogger = LogFactory.getLog("rule.ResourceObjectCustomization");
+//mylogger.debug("Start ResourceObjectCustomization");
+//add the following lines to IIQ Log4j properties file to use this logger
+//logger.ResourceObjectCustomization.name=rule.ResourceObjectCustomization 
+//logger.ResourceObjectCustomization.level=debug
+
+//Available Input Variables
+//object;
+//application;
+//connector;
+//state;
+
+
+//mylogger.debug("End ResourceObjectCustomization");
+//return ResourceObject
+return null;
+]]>
+  </Source>
+</Rule>
+</sailpoint>
